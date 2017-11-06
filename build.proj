@@ -1,0 +1,6 @@
+<Project>
+  <Target Name="Print">
+    <Message Text="Prop1: $(Prop1)" />
+    <Message Text="Prop2: $(Prop2)" />
+  </Target>
+</Project>

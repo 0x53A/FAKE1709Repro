@@ -4,13 +4,13 @@ open Fake
 open System
 
 Target "Test" (fun _ ->
-    let root = @"C:\Users\chrst\Desktop\Test\"
     MSBuildHelper.build (fun p -> { p with MaxCpuCount = Some (Some Environment.ProcessorCount)
+                                           Targets = [ "Print" ]
                                            Properties =
                                               [
-                                                "VCInstallDir", root @@  @"packages\build\VisualCppTools.Community.D14Layout\lib\native\"
-                                                "Include", @"packages\build\Precast.WindowsSdk\tools\windows-kits\8.1\Include\um"
+                                                "Prop1",  @"ValueWithBackslash\"
+                                                "Prop2", @"AnotherValueWithBackslash\"
 
-                                              ]}) @"C:\Users\chrst\Desktop\1709\Solution1\Solution1.sln")
+                                              ]}) @"build.proj")
 
 RunTargetOrDefault "Test"
